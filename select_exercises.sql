@@ -17,3 +17,6 @@ SELECT * FROM albums WHERE sales < 20.00;
 
 SELECT '--------------------' AS 'Rock Albums';
 SELECT * FROM albums WHERE genre = 'Rock';
+
+SELECT '--------------------' AS 'All Rock Albums';
+SELECT *  FROM albums WHERE genre LIKE '%Rock%';

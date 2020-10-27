@@ -25,3 +25,11 @@ DELETE FROM albums WHERE artist = 'Eagles';
 
 SELECT '------------------' AS 'Eagles - ALBUMS REMOVED';
 SELECT * FROM albums WHERE id > 0;
+
+SELECT '------------------' AS 'Whitney Houston Albums';
+SELECT * FROM albums WHERE artist LIKE 'Whitney Houston%';
+
+DELETE FROM albums WHERE artist LIKE 'Whitney Houston%';
+
+SELECT '------------------' AS 'Whitney Houston - ALBUMS REMOVED';
+SELECT * FROM albums WHERE id > 0;
