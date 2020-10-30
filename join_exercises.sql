@@ -65,14 +65,14 @@ SELECT d.dept_name AS 'Department_Name', CONCAT(e.first_name, ' ', e.last_name) 
 FROM employees AS e
          JOIN dept_manager AS dm ON dm.emp_no = e.emp_no
          JOIN departments AS d ON d.dept_no = dm.dept_no
-WHERE dm.to_date = '9999-01-01' ORDER BY d.dept_name ASC;
+WHERE dm.to_date = '9999-01-01' ORDER BY d.dept_name;
 
 SELECT d.dept_name AS 'Department_Name', CONCAT(e.first_name, ' ', e.last_name) AS 'Manager_Name'
 FROM employees AS e
          JOIN dept_manager AS dm ON dm.emp_no = e.emp_no
          JOIN departments AS d ON d.dept_no = dm.dept_no
 WHERE dm.to_date = '9999-01-01'
-  AND e.gender = 'F' ORDER BY d.dept_name ASC;
+  AND e.gender = 'F' ORDER BY d.dept_name;
 
 SELECT title, COUNT(title)
 FROM titles AS t
@@ -88,7 +88,7 @@ FROM employees AS e
          JOIN dept_manager AS dm ON dm.emp_no = e.emp_no
          JOIN departments AS d ON d.dept_no = dm.dept_no
          JOIN salaries AS s ON s.emp_no = e.emp_no
-WHERE dm.to_date = '9999-01-01' AND s.to_date = '9999-01-01' ORDER BY d.dept_name ASC;
+WHERE dm.to_date = '9999-01-01' AND s.to_date = '9999-01-01' ORDER BY d.dept_name;
 
 #Bonus ??? not sure how to do this
 SELECT CONCAT(e.first_name, ' ', e.last_name) AS 'Employee_Name', d.dept_name AS 'Department_Name', CONCAT(e.first_name, ' ', e.last_name) AS 'Manager_Name'
@@ -96,4 +96,4 @@ FROM employees AS e
          JOIN dept_emp AS de ON de.emp_no = e.emp_no
          JOIN departments AS d ON d.dept_no = de.dept_no
 #          JOIN dept_manager AS dm ON dm.emp_no = e.emp_no
-WHERE de.to_date = '9999-01-01' ORDER BY d.dept_name ASC;
+WHERE de.to_date = '9999-01-01' ORDER BY d.dept_name;
