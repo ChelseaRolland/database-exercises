@@ -90,10 +90,16 @@ FROM employees AS e
          JOIN salaries AS s ON s.emp_no = e.emp_no
 WHERE dm.to_date = '9999-01-01' AND s.to_date = '9999-01-01' ORDER BY d.dept_name;
 
-#Bonus ??? not sure how to do this
-SELECT CONCAT(e.first_name, ' ', e.last_name) AS 'Employee_Name', d.dept_name AS 'Department_Name', CONCAT(e.first_name, ' ', e.last_name) AS 'Manager_Name'
-FROM employees AS e
-         JOIN dept_emp AS de ON de.emp_no = e.emp_no
-         JOIN departments AS d ON d.dept_no = de.dept_no
-#          JOIN dept_manager AS dm ON dm.emp_no = e.emp_no
-WHERE de.to_date = '9999-01-01' ORDER BY d.dept_name;
+#Bonus
+SELECT CONCAT(e.first_name, ' ', e.last_name) AS 'Employee Name', d.dept_name AS `Department Name`, CONCAT(e2.first_name, ' ', e2.last_name) AS `Department Manager Name`
+FROM employees as e
+         JOIN dept_emp AS de
+              ON e.emp_no = de.emp_no
+         JOIN departments AS d
+              ON d.dept_no = de.dept_no
+         JOIN dept_manager AS dm
+              ON d.dept_no = dm.dept_no
+         JOIN employees AS e2
+              ON e2.emp_no = dm.emp_no
+WHERE de.to_date LIKE '9999%' and dm.to_date LIKE '9999%'
+ORDER BY e.last_name ASC;
